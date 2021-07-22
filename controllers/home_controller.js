@@ -1,3 +1,5 @@
+const Contact = require("../models/contact");
+
 contactList = [
     {
         name: "Arpan",
@@ -27,9 +29,19 @@ module.exports.view = function(req, res){
 };
 
 module.exports.submit = function(req, res){
-    contactList.push(req.body);
+    // contactList.push(req.body);
 
-    return res.redirect('/');
+    Contact.create({
+        name: req.body.name,
+        phone: req.body.phone
+    }, function(err, newContact){
+        if(err){
+            console.log('Error in creating a contact.');
+        }
+
+        console.log('********', newContact);
+        return res.redirect('back');
+    })
 };
 
 module.exports.delete = function(req, res){
