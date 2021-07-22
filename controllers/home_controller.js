@@ -4,7 +4,7 @@ var contactList = [
         phone: "1234567890"
     },
     {
-        name: "Tony Starck",
+        name: "Tony Stark",
         phone: "9876543210"
     },
     {
@@ -18,4 +18,8 @@ module.exports.home = function(req, res) {
         title: 'Contacts List',
         contact_list: contactList
     })
+}
+
+module.exports.submit = function(req, res){
+    return res.redirect('./practice');
 }
