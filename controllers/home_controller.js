@@ -16,10 +16,17 @@ contactList = [
 ]
 
 module.exports.home = function(req, res) {
-    return res.render('home', {
-        title: 'Contacts List',
-        contact_list: contactList
-    })
+
+    Contact.find({}, function(err, contacts){
+        if(err){
+            console.log('Error in fetching contacts from db.');
+            return;
+        }
+        return res.render('home', {
+            title: 'Contacts List',
+            contact_list: contacts
+        });
+    });
 };
 
 module.exports.view = function(req, res){
@@ -40,7 +47,7 @@ module.exports.submit = function(req, res){
         }
 
         console.log('********', newContact);
-        return res.redirect('back');
+        return res.redirect('/');
     })
 };
 
