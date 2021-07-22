@@ -1,4 +1,4 @@
-var contactList = [
+contactList = [
     {
         name: "Arpan",
         phone: "1234567890"
@@ -18,4 +18,19 @@ module.exports.home = function(req, res) {
         title: 'Contacts List',
         contact_list: contactList
     })
+};
+
+module.exports.view = function(req, res){
+    return res.render('form',{
+        title: 'Contact List Form Submission'
+    })
+};
+
+module.exports.submit = function(req, res){
+    console.log(req.body);
+    console.log(req.body.name);
+    console.log(req.body.phone);
+    contactList.push(req.body);
+
+    return res.redirect('/');
 };
