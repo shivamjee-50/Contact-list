@@ -1,3 +1,31 @@
 body{
+    width: 100%;
+    margin: 0;
+}
+
+#Heading {
     text-align: center;
+    color: darkcyan;
+    text-transform: uppercase;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+#List{
+    margin-left: 35vw;
+    text-align: center;
+}
+
+#List ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+#List ul li{
+    background-color: cyan;
+    margin: 2px 0 2px 0;
+    width: 30vw;
+    padding: 5px;
+}
+#List ul li p{
+    display: inline;
+    font-size: 20px;
 }

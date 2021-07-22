@@ -27,10 +27,18 @@ module.exports.view = function(req, res){
 };
 
 module.exports.submit = function(req, res){
-    console.log(req.body);
-    console.log(req.body.name);
-    console.log(req.body.phone);
     contactList.push(req.body);
 
     return res.redirect('/');
 };
+
+module.exports.delete = function(req, res){
+    let phone = req.query;
+
+    let contactIndex = contactList.findIndex(contact => contact.phone == phone);
+
+    if(contactIndex == -1){
+        contactList.splice(contactIndex, 1);
+    }
+    return res.redirect('back');
+}

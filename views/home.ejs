@@ -4,17 +4,20 @@
     <title>
         <%= locals.title %>
     </title>
+    <!-- Our CSS should be below all the stylesheets link so that it is not overwritten by other stylesheets -->
+
     <link rel="stylesheet" type="text/css" href="/css/home.css">
 </head>
 <body>
-    <h1>Rendered from EJS View!</h1>
+    <h1 id="Heading">My Contact List</h1>
 
-    <div>
+    <div id="List">
         <ul>
             <% for(let i of contact_list) { %>
                 <li>
                     <p><%= i.name %></p>
                     <p><%= i.phone %></p>
+                    <p><a href="/delete-contact">X</a></p>
                 </li>
             <% } %>
         </ul>

@@ -8,5 +8,6 @@ router.use(express.urlencoded());
 router.get('/', home_controller.home);
 router.use('/practice', require('./practice'));
 router.use('/form', require('./form'));
+router.use('/delete-contact', require('./delete-contact'));
 
 module.exports = router;
