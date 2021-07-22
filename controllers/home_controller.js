@@ -48,16 +48,19 @@ module.exports.submit = function(req, res){
 
         console.log('********', newContact);
         return res.redirect('/');
-    })
+    });
 };
 
 module.exports.delete = function(req, res){
-    let phone = req.query;
+    // Get the id from query in the url
+    let id = req.query.id;
 
-    let contactIndex = contactList.findIndex(contact => contact.phone == phone);
-
-    if(contactIndex == -1){
-        contactList.splice(contactIndex, 1);
-    }
-    return res.redirect('back');
+    //Find the contact in the database using id and delete it
+    Contact.findByIdAndDelete(id, function(err){
+        if(err){
+            console.log('Error in deleting an object from database.');
+            return;
+        };
+        return res.redirect('back');
+    });
 }
