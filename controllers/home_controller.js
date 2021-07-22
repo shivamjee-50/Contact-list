@@ -18,8 +18,4 @@ module.exports.home = function(req, res) {
         title: 'Contacts List',
         contact_list: contactList
     })
-}
-
-module.exports.submit = function(req, res){
-    return res.redirect('./practice');
-}
+};
