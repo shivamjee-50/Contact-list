@@ -6,6 +6,7 @@ app.set('view engine', 'ejs');
 app.set('views', './views');
 
 app.use('/', require('./routes'));
+app.use(express.static('./assets'));
 
 app.listen(port, function(err){
     if(err){
